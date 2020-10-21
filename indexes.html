@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+       /*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+/*===== VARIABLES CSS =====*/
+:root{
+  /*===== Colores =====*/
+  --first-color: #1A73E8;
+  --input-color: white;
+  --border-color: #DADCE0;
+  /* #80868B */
+  /*===== Fuente y tipografia =====*/
+  --body-font: 'Roboto', sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: .75rem;
+}
+  
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+  background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1{
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(92,99,105,.2);
+  border-radius: 2rem;
+  font-weight: 400;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: wheat;
+  background-image: url('three.jpg');
+}
+
+
+/*===== FORM =====*/
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.form{
+  width: 36px;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(92,99,105,.2);
+}
+
+.form__title{
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: white;
+ 
+}
+.textbox{
+  position: relative;
+  height: 48px;
+  margin-bottom: 1.5rem;
+}
+.form__input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250%;
+  height: 100%;
+  font-size: var(--normal-font-size);
+  border: 1px solid var(--border-color);
+  border-radius: .5rem;
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1;
+  color: white;
+}
+.form__label{
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  padding: 0 .25rem;
+  /* background-color: #fff; */
+  color: var(--input-color);
+  font-size: var(--normal-font-size);
+  transition: .3s;
+}
+.btn{
+  display: block;
+  margin-left: auto;
+  padding: .75rem 2rem;
+  outline: none;
+  border: none;
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: var(--normal-font-size);
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: .3s;
+}
+.form__button:hover{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+
+/*Input focus move up label*/
+.form__input:focus + .form__label{
+  top: -.5rem;
+  left: .8rem;
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  z-index: 10;
+}
+
+/*Input focus sticky top label*/
+.form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
+  top: -.5rem;
+  left: .8rem;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  z-index: 10;
+}
+
+/*Input focus*/
+.form__input:focus{
+  border: 1.5px solid var(--first-color);
+}
+    </style>
+</head>
+<body>
+  
+    <div class="container">
+      <!-- <img src="three.jpg"> -->
+      <h1>Your little donation can help many needy person. </br>The Sparks Foundation</h1>
+        <form action="/paynow" method="POST"> 
+          
+          <h2 id="head" class="form__title">Sign In</h2>
+            <div class="textbox">
+            <label class="form__label" for="email">Email:</label>
+            <input class="form__input" type="email" name="email">
+        </div>
+        <div class="textbox">
+            <label class="form__label" for="phone">Phone:</label>
+            <input class="form__input" type="text" name="phone">
+        </div>
+        <div class="textbox">
+            <label class="form__label" for="amount">Amount:</label>
+            <input class="form__input" type="text" name="amount">
+            </div>
+            <div>
+             <button class="btn" type="submit">Donate</button>
+            </div>
+        </form>
+       </div>      
+      
+       <!-- <div class="container">
+        <form action="/paynow" method="POST" class="form">
+            <h1 class="form__title">Sign In</h1>
+
+            <div class="form__div">
+                <input type="email" class="form__input" placeholder=" ">
+                <label for="email" class="form__label">Email</label>
+            </div>
+
+            <div class="form__div">
+                <input type="text" class="form__input" placeholder=" ">
+                <label for="phone" class="form__label">Mobile Number</label>
+            </div>
+
+            <div class="form__div">
+                <input type="text" class="form__input" placeholder=" ">
+                <label for="amount" class="form__label">Amount</label>
+            </div>
+
+            <input type="submit" class="form__button" value="Sign In">
+        </form>
+    </div> -->
+
+
+    </body>
+</html> 
